@@ -1,50 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+
 
 import './modal.scss';
+import ModalForm from './ModalForm';
 
-class Modal extends Component {
-  render() {
-    return (
-      <div className="modal overlay">
-        <div className="modal__content">
-          <div className="create-event">
-            <button className="create-event__close-btn">+</button>
-            <form className="event-form">
-              <input
-                type="text"
-                name="title"
-                placeholder="Title"
-                className="event-form__field"
-              />
-              <div className="event-form__time">
-                <input type="date" name="date" className="event-form__field" />
-                <input
-                  type="time"
-                  name="startTime"
-                  className="event-form__field"
-                  onChange={this.handleChange}
-                />
-                <span>-</span>
-                <input
-                  type="time"
-                  name="endTime"
-                  className="event-form__field"
-                />
-              </div>
-              <textarea
-                name="description"
-                placeholder="Description"
-                className="event-form__field"
-              ></textarea>
-              <button type="submit" className="event-form__submit-btn">
-                Create
-              </button>
-            </form>
-          </div>
+const Modal = ({setStartDate, displayedWeek, createEvent, setCreateEvent}) => {
+
+  useEffect(() => {
+    const onCloseModal = () => {
+      setCreateEvent(!createEvent);
+    };
+
+    const closeModal = document.querySelector('.create-event__close-btn');
+    closeModal.addEventListener('click', onCloseModal);
+    return () => {
+      closeModal.removeEventListener('click', onCloseModal);
+    }
+  })
+
+  return (
+    <div className="modal overlay">
+      <div className="modal__content">
+        <div className="create-event">
+          <button className="create-event__close-btn">+</button>
+          <ModalForm displayedWeek={displayedWeek} />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+
 }
 
 export default Modal;

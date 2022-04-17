@@ -1,0 +1,9 @@
++1. Make a calendar flexible (it should be changed according to the buttons
+    Today, next week, prev week)
+
++2. Add possibility to creacte events by clicking on Creacte bnt.
+
+3. Add possibility to creacte events by clicking on 
+    a specific square of thecalendar.
+
+4. Add validations (see the roudMap in the task on the website).

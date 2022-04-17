@@ -13,6 +13,7 @@ class Calendar extends Component {
   };
 
   render() {
+    console.log(this.state.events)
     const { weekDates } = this.props;
 
     return (

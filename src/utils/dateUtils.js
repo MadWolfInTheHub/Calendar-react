@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const getWeekStartDate = (date) => {
   const dateCopy = new Date(date);
   const dayOfWeek = dateCopy.getDay();
@@ -31,7 +33,7 @@ export const formatMins = (mins) => {
 };
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-export const months = [
+export const monthsNames = [
   'January',
   'February',
   'March',
@@ -45,3 +47,20 @@ export const months = [
   'November',
   'December',
 ];
+
+export const getDisplayedMonth = (date) => {
+  const weekStart = (date);
+  const weekEnd = moment(date).add(6,'days' );
+  const startMonth = new Date(weekStart).getMonth();
+  const startYear = new Date(weekStart).getFullYear();
+  const endMonth = new Date(weekEnd).getMonth();
+  const endYear = new Date(weekEnd).getFullYear();
+  const isSameMonth = startMonth === endMonth;
+  if (isSameMonth) {
+    return `${monthsNames[startMonth]} ${startYear}`;
+  }
+  const isSameYear = startYear === endYear;
+  return isSameYear
+    ? `${monthsNames[startMonth]} - ${monthsNames[endMonth]} ${startYear}`
+    : `${monthsNames[startMonth]} ${startYear} - ${monthsNames[endMonth]} ${endYear}`;
+};
