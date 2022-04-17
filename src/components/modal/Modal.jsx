@@ -6,15 +6,20 @@ import ModalForm from './ModalForm';
 
 const Modal = ({setStartDate, displayedWeek, createEvent, setCreateEvent}) => {
 
+  const onCloseModal = () => {
+    setCreateEvent(!createEvent);
+  };
+    
   useEffect(() => {
-    const onCloseModal = () => {
-      setCreateEvent(!createEvent);
-    };
+    const modalCloseBtn = () => {
+      onCloseModal()
+    }
 
     const closeModal = document.querySelector('.create-event__close-btn');
-    closeModal.addEventListener('click', onCloseModal);
+    const submitBtn = document.querySelector('.event-form__submit-btn');
+    closeModal.addEventListener('click', modalCloseBtn);
     return () => {
-      closeModal.removeEventListener('click', onCloseModal);
+      closeModal.removeEventListener('click', modalCloseBtn);
     }
   })
 
@@ -23,7 +28,10 @@ const Modal = ({setStartDate, displayedWeek, createEvent, setCreateEvent}) => {
       <div className="modal__content">
         <div className="create-event">
           <button className="create-event__close-btn">+</button>
-          <ModalForm displayedWeek={displayedWeek} />
+          <ModalForm 
+          displayedWeek={displayedWeek} 
+          onCloseModal={onCloseModal}  
+        />
         </div>
       </div>
     </div>

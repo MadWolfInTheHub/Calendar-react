@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { createEvent } from "../../gateway/tasksGateway";
 /* Use it to transfer date nad time under proper names to the server */
 /* val = new Date(moment(date + ' ' + value)) */
 
 class ModalForm extends Component {
   state = {
-    id: Math.random(),
     title: '',
     description: '',
     date: moment(this.props.date).format("YYYY-MM-DD"),
@@ -23,7 +23,17 @@ class ModalForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+    if(this.state.title === '' || this.state.description === '') {
+      alert("Plase fill in the form!")
+      return;
+    }
+    createEvent({
+      title: this.state.title,
+      description: this.state.description,
+      dateFrom: new Date(moment(this.state.date + ' ' + this.state.dateFrom)),
+      dateTo: new Date(moment(this.state.date + ' ' + this.state.dateTo)),
+    })
+    this.props.onCloseModal()
   }
  
 
