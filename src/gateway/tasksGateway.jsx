@@ -1,3 +1,8 @@
+const events = [];
+
+
+export default events;
+
 const baseUrl = "https://625ac031398f3bc782a5bba2.mockapi.io/events"
 
 export const createEvent = (eventData) => {
@@ -6,7 +11,7 @@ export const createEvent = (eventData) => {
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify(EeventData),
+    body: JSON.stringify(eventData),
   }).then(response => {
     if (!response.ok) {
       throw new Error('Fail to creat Eevent')
@@ -21,7 +26,7 @@ export const fetchEventsList = () => {
         return res.json()
       }
     })
-    .then(eventsList => eventsList);
+    .then(eventsList => events = eventsList);
 };
 
 export const updateEvent = (eventId, eventData) => {
