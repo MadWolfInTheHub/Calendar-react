@@ -10,28 +10,34 @@ import Modal from './components/modal/Modal.jsx';
 
 const App = () => {
   const [weekStartDate, setStartDate] = useState({
-    displayedWeek: new Date()
+    currentday: new Date()
   })
   const [createEvent, setCreateEvent] = useState(false)
-  
-  const { displayedWeek } = weekStartDate;
+  const { currentday } = weekStartDate;
+
+  const [eventDay, setEventDay] = useState(currentday)
+  console.log(eventDay)
  
-  const weekDates = generateWeekRange(getWeekStartDate(displayedWeek));
+  const weekDates = generateWeekRange(getWeekStartDate(currentday));
   return (
     <>
       <Header 
-        displayedWeek={displayedWeek}
+        currentday={currentday}
         setStartDate={setStartDate}
         createEvent={createEvent}
         setCreateEvent={setCreateEvent}
         />
-      <Calendar weekDates={weekDates} />
+      <Calendar 
+        weekDates={weekDates}
+        setEventDay={setEventDay}
+        setCreateEvent={setCreateEvent}
+        />
       {
         !createEvent
         ? null
         : <Modal 
-            displayedWeek={displayedWeek}
-            setStartDate={setStartDate}
+            eventDay={eventDay}
+            setEventDay={setEventDay}
             createEvent={createEvent}
             setCreateEvent={setCreateEvent}
           />

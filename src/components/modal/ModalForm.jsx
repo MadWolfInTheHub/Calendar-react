@@ -8,9 +8,9 @@ class ModalForm extends Component {
   state = {
     title: '',
     description: '',
-    date: moment(this.props.date).format("YYYY-MM-DD"),
-    dateFrom: moment(this.props.displayedWeek).format('hh:mm'),
-    dateTo: moment(this.props.displayedWeek).format('hh:mm'),
+    date: moment(this.props.eventDay).format("YYYY-MM-DD"),
+    dateFrom: moment(this.props.eventDay).format('hh:mm'),
+    dateTo: moment(this.props.eventDay).format('hh:mm'),
   }
   
   

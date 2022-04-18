@@ -4,35 +4,35 @@ import CreateButton from './CreateButton'
 
 import './header.scss';
 
-const Header = ({ setStartDate, displayedWeek, createEvent, setCreateEvent }) => {
-  const displayedMonthElem = getDisplayedMonth(displayedWeek)
+const Header = ({ setStartDate, currentday, createEvent, setCreateEvent }) => {
+  const displayedMonthElem = getDisplayedMonth(currentday)
 
   const onChangeWeek = event => { 
     const changeWeek = event.target.getAttribute('data-direction');
   
     const currentWeek = new Date();
     const week = 7;
-    const date = new Date(displayedWeek).getDate();
-    const month = new Date(displayedWeek).getMonth();
-    const year = new Date(displayedWeek).getFullYear();
+    const date = new Date(currentday).getDate();
+    const month = new Date(currentday).getMonth();
+    const year = new Date(currentday).getFullYear();
 
     if (changeWeek === null) return;
 
     if (changeWeek === 'today') {
       setStartDate({
-        displayedWeek: currentWeek,
+        currentday: currentWeek,
       });
     } ;
 
     if (changeWeek === 'prev') {
       setStartDate({
-        displayedWeek: (new Date(year, month, date - week)),
+        currentday: (new Date(year, month, date - week)),
       });
     };
 
     if (changeWeek === 'next') {
       setStartDate({
-        displayedWeek: (new Date(year, month, date + week)),
+        currentday: (new Date(year, month, date + week)),
       });
     };
   };

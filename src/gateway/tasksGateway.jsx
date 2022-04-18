@@ -21,7 +21,7 @@ export const fetchEventsList = () => {
         return res.json()
       }
     })
-    .then(eventsList => events = eventsList);
+    .then(eventsList => eventsList);
 };
 
 export const updateEvent = (eventId, eventData) => {

@@ -4,9 +4,10 @@ import React, { useEffect } from 'react';
 import './modal.scss';
 import ModalForm from './ModalForm';
 
-const Modal = ({setStartDate, displayedWeek, createEvent, setCreateEvent}) => {
+const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent}) => {
 
   const onCloseModal = () => {
+    setEventDay(new Date())
     setCreateEvent(!createEvent);
   };
     
@@ -16,7 +17,6 @@ const Modal = ({setStartDate, displayedWeek, createEvent, setCreateEvent}) => {
     }
 
     const closeModal = document.querySelector('.create-event__close-btn');
-    const submitBtn = document.querySelector('.event-form__submit-btn');
     closeModal.addEventListener('click', modalCloseBtn);
     return () => {
       closeModal.removeEventListener('click', modalCloseBtn);
@@ -29,8 +29,8 @@ const Modal = ({setStartDate, displayedWeek, createEvent, setCreateEvent}) => {
         <div className="create-event">
           <button className="create-event__close-btn">+</button>
           <ModalForm 
-          displayedWeek={displayedWeek} 
-          onCloseModal={onCloseModal}  
+          eventDay={eventDay} 
+          onCloseModal={onCloseModal}
         />
         </div>
       </div>

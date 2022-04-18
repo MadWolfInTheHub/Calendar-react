@@ -30,7 +30,13 @@ class Calendar extends Component {
           <div className="calendar__week-container">
             <Sidebar />
             
-            <Week weekDates={weekDates} events={this.state.events} />
+            <Week 
+              weekDates={weekDates}
+              events={this.state.events}
+              setEventDay={this.props.setEventDay} 
+              setCreateEvent={this.props.setCreateEvent}
+
+              />
           </div>
         </div>
       </section>
