@@ -10,7 +10,7 @@ class ModalForm extends Component {
     description: '',
     date: moment(this.props.eventDay).format("YYYY-MM-DD"),
     dateFrom: moment(this.props.eventDay).format('hh:mm'),
-    dateTo: moment(this.props.eventDay).format('hh:mm'),
+    dateTo: moment(this.props.eventDay).add(1, 'hours').format('hh:mm'),
   }
   
   

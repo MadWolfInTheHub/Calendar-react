@@ -12,8 +12,9 @@ const Week = ({ weekDates, events, setEventDay, setCreateEvent }) => {
     const handleClick = event => {
       const choosenTime = event.target.closest('.calendar__time-slot').getAttribute('data-time')
       const choosenDay = event.target.closest('.calendar__day').getAttribute('data-day')
+      console.log(choosenTime)
       const chossenDate = weekDates.filter(date => moment(date).format('DD') === choosenDay)
-      setEventDay(chossenDate[0])
+      setEventDay(moment(chossenDate[0]).add(choosenTime - 1, 'hours'))
       setCreateEvent(true)
     }
     weekElem.addEventListener("click", handleClick)
