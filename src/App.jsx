@@ -9,14 +9,11 @@ import './common.scss';
 import Modal from './components/modal/Modal.jsx';
 
 const App = () => {
-  const [weekStartDate, setStartDate] = useState({
-    currentday: new Date()
-  })
+  const [weekStartDate, setStartDate] = useState({ currentday: new Date() })
   const [createEvent, setCreateEvent] = useState(false)
   const { currentday } = weekStartDate;
 
   const [eventDay, setEventDay] = useState(currentday)
-  console.log(eventDay)
  
   const weekDates = generateWeekRange(getWeekStartDate(currentday));
   return (

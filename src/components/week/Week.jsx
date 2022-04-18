@@ -9,18 +9,19 @@ const Week = ({ weekDates, events, setEventDay, setCreateEvent }) => {
   useEffect(() => {
     const weekElem = document.querySelector('.calendar__week')
 
-    const handleClick = event => {
+    const handleChoosedTimeSlot = event => {
+      const hour = 1
       const choosenTime = event.target.closest('.calendar__time-slot').getAttribute('data-time')
       const choosenDay = event.target.closest('.calendar__day').getAttribute('data-day')
       console.log(choosenTime)
       const chossenDate = weekDates.filter(date => moment(date).format('DD') === choosenDay)
-      setEventDay(moment(chossenDate[0]).add(choosenTime - 1, 'hours'))
+      setEventDay(moment(chossenDate[0]).add(choosenTime - hour, 'hours'))
       setCreateEvent(true)
     }
-    weekElem.addEventListener("click", handleClick)
+    weekElem.addEventListener("click", handleChoosedTimeSlot)
     return () => {
       
-      weekElem.removeEventListener("click", handleClick)
+      weekElem.removeEventListener("click", handleChoosedTimeSlot)
     }
   })
   

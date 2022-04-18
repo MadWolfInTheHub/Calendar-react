@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { createEvent } from "../../gateway/tasksGateway";
-/* Use it to transfer date nad time under proper names to the server */
-/* val = new Date(moment(date + ' ' + value)) */
 
 class ModalForm extends Component {
   state = {
