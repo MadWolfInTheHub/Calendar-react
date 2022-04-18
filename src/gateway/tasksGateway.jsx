@@ -1,8 +1,3 @@
-const events = [];
-
-
-export default events;
-
 const baseUrl = "https://625ac031398f3bc782a5bba2.mockapi.io/events"
 
 export const createEvent = (eventData) => {

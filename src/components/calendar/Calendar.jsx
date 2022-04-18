@@ -9,9 +9,16 @@ import './calendar.scss';
 import { fetchEventsList } from '../../gateway/tasksGateway';
 
 class Calendar extends Component {
+  state = {
+    events: [],
+  };
+
   componentDidMount() {
-    fetchEventsList()
-    
+    fetchEventsList().then(eventsList => 
+      this.setState({
+        events: eventsList,
+      }),
+    );
   }
   
   render() {
