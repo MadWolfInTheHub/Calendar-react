@@ -4,22 +4,13 @@ import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
 
-
 import './calendar.scss';
-import { fetchEventsList } from '../../gateway/tasksGateway';
 
 class Calendar extends Component {
-  state = {
-    events: [],
-  };
-
   componentDidMount() {
-    fetchEventsList().then(eventsList => 
-      this.setState({
-        events: eventsList,
-      }),
-    );
+    this.props.fetchEvents();
   }
+
   
   render() {
     const { weekDates } = this.props;
@@ -32,11 +23,14 @@ class Calendar extends Component {
             
             <Week 
               weekDates={weekDates}
-              events={this.state.events}
+              events={this.props.events}
               setEventDay={this.props.setEventDay} 
               setCreateEvent={this.props.setCreateEvent}
-
-              />
+              setPopUp={this.props.setPopUp}
+              setPopUpStyles={this.props.setPopUpStyles}
+              seteventToDelete={this.props.seteventToDelete}
+              fetchEvents={this.fetchEvents}
+            />
           </div>
         </div>
       </section>

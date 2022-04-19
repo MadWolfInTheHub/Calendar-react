@@ -4,26 +4,45 @@ import moment from 'moment';
 
 import './week.scss';
 
-const Week = ({ weekDates, events, setEventDay, setCreateEvent }) => {
+const Week = ({ weekDates, events, setEventDay, setCreateEvent, setPopUp, setPopUpStyles, seteventToDelete }) => {
+
   
   useEffect(() => {
-    const weekElem = document.querySelector('.calendar__week')
+    const weekElem = document.querySelector('.calendar__week');
 
     const handleChoosedTimeSlot = event => {
-      const hour = 1
-      const choosenTime = event.target.closest('.calendar__time-slot').getAttribute('data-time')
-      const choosenDay = event.target.closest('.calendar__day').getAttribute('data-day')
-      console.log(choosenTime)
-      const chossenDate = weekDates.filter(date => moment(date).format('DD') === choosenDay)
-      setEventDay(moment(chossenDate[0]).add(choosenTime - hour, 'hours'))
-      setCreateEvent(true)
-    }
-    weekElem.addEventListener("click", handleChoosedTimeSlot)
-    return () => {
+      const isEvent = event.target.closest('.event');
       
-      weekElem.removeEventListener("click", handleChoosedTimeSlot)
-    }
-  })
+      if(isEvent) {
+        const eventCoordinates = isEvent.getBoundingClientRect();
+        const eventId = isEvent.getAttribute('data-event-id');
+        seteventToDelete(eventId);
+        setPopUpStyles({
+          top: `${eventCoordinates.y + eventCoordinates.height}px`,
+          left: `${eventCoordinates.x}px`
+        });
+        setPopUp(true);
+
+        return;
+      };
+
+
+      const hour = 1
+      const choosenTime = event.target.closest('.calendar__time-slot').getAttribute('data-time');
+      const choosenDay = event.target.closest('.calendar__day').getAttribute('data-day');
+      const chossenDate = weekDates.filter(date => moment(date).format('DD') === choosenDay);
+
+
+      setEventDay(moment(chossenDate[0]).add(choosenTime - hour, 'hours'));
+      setCreateEvent(true);
+    };
+
+
+    weekElem.addEventListener("click", handleChoosedTimeSlot);
+    return () => {
+      weekElem.removeEventListener("click", handleChoosedTimeSlot);
+    };
+  });
   
   return (
     <div className="calendar__week">
@@ -31,12 +50,9 @@ const Week = ({ weekDates, events, setEventDay, setCreateEvent }) => {
         const dayEnd = new Date(dayStart.getTime()).setHours(
           dayStart.getHours() + 24
         );
-
-        //getting all events from the day we will render
-        const dayEvents = events.filter(
-          (event) => event.dateFrom > dayStart && event.dateTo < dayEnd
-        );
-
+        const dayEvents = events.filter((event) => {
+          return new Date(event.dateFrom) > dayStart && new Date(event.dateTo) < dayEnd
+        });
         return (
           <Day
             key={dayStart.getDate()}

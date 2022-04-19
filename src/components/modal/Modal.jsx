@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import './modal.scss';
 import ModalForm from './ModalForm';
 
-const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent}) => {
+const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent, fetchEvents }) => {
 
   const onCloseModal = () => {
     setEventDay(new Date())
@@ -31,6 +31,7 @@ const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent}) => {
           <ModalForm 
           eventDay={eventDay} 
           onCloseModal={onCloseModal}
+          fetchEvents={fetchEvents}
         />
         </div>
       </div>

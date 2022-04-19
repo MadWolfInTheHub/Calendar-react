@@ -9,7 +9,7 @@ class ModalForm extends Component {
     date: moment(this.props.eventDay).format("YYYY-MM-DD"),
     dateFrom: moment(this.props.eventDay).format('hh:mm'),
     dateTo: moment(this.props.eventDay).add(1, 'hours').format('hh:mm'),
-  }
+  };
   
   
   handleChange = event => {
@@ -17,22 +17,24 @@ class ModalForm extends Component {
     this.setState({    
       [name]: value,
     });
-  }
+  };
 
   onSubmit = event => {
     event.preventDefault();
     if(this.state.title === '' || this.state.description === '') {
-      alert("Plase fill in the form!")
+      alert("Plase fill in the form!");
       return;
-    }
+    };
+
     createEvent({
       title: this.state.title,
       description: this.state.description,
       dateFrom: new Date(moment(this.state.date + ' ' + this.state.dateFrom)),
       dateTo: new Date(moment(this.state.date + ' ' + this.state.dateTo)),
     })
-    this.props.onCloseModal()
-  }
+    .then(() => this.props.fetchEvents());
+    this.props.onCloseModal();
+  };
  
 
   render() {
