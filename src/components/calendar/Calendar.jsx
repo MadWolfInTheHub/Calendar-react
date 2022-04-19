@@ -1,31 +1,31 @@
+/* eslint-disable import/no-unresolved */
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
-import Navigation from './../navigation/Navigation';
+import Navigation from '../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
 
 import './calendar.scss';
-import propTypes from 'prop-types';
 
 class Calendar extends Component {
   componentDidMount() {
     this.props.fetchEvents();
   }
 
-  
   render() {
     const { weekDates } = this.props;
     return (
+      // eslint-disable-next-line
       <section className="calendar">
         <Navigation weekDates={weekDates} />
         <div className="calendar__body">
           <div className="calendar__week-container">
             <Sidebar />
-            
-            <Week 
+            <Week
               weekDates={weekDates}
               events={this.props.events}
-              setEventDay={this.props.setEventDay} 
+              setEventDay={this.props.setEventDay}
               setCreateEvent={this.props.setCreateEvent}
               setPopUp={this.props.setPopUp}
               setPopUpStyles={this.props.setPopUpStyles}
@@ -50,4 +50,4 @@ Calendar.propTypes = {
   seteventToDelete: propTypes.func,
   events: propTypes.array,
   fetchEvents: propTypes.func,
-}
+};

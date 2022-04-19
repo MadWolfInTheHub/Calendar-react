@@ -1,5 +1,5 @@
 const hour = 60;
-const clockHeight = () => (new Date().getHours() * hour) + new Date().getMinutes()
+const clockHeight = () => (new Date().getHours() * hour) + new Date().getMinutes();
 
 export const time = () => {
   const clockLine = document.querySelector('.clock');
@@ -10,4 +10,4 @@ export const time = () => {
   clockLine.style.backgroundColor = 'red';
   clockLine.style.position = 'absolute';
   clockLine.style.width = '80%';
-}
+};
