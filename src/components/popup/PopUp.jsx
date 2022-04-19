@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { deleteEvent } from '../../gateway/tasksGateway';
+import propTypes from 'prop-types';
 
 const PopUp = ({ popUpStyles, setPopUp, eventToDelete, fetchEvents }) => {
   const {top, left} = popUpStyles;
@@ -40,3 +41,10 @@ const PopUp = ({ popUpStyles, setPopUp, eventToDelete, fetchEvents }) => {
 };
 
 export default PopUp;
+
+PopUp.propTypes ={
+  popUpStyles: propTypes.object,
+  setPopUp: propTypes.func,
+  eventToDelete: propTypes.string,
+  fetchEvents: propTypes.func,
+}

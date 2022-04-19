@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 
 import './modal.scss';
 import ModalForm from './ModalForm';
+import propTypes from 'prop-types';
 
 const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent, fetchEvents }) => {
 
@@ -41,3 +42,11 @@ const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent, fetchEvents 
 }
 
 export default Modal;
+
+Modal.propTypes = {
+  eventDay: propTypes.object,
+  setEventDay: propTypes.func,
+  createEvent: propTypes.bool,
+  setCreateEvent: propTypes.func,
+  fetchEvents: propTypes.func,
+}

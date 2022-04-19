@@ -3,6 +3,7 @@ import Day from '../day/Day';
 import moment from 'moment';
 
 import './week.scss';
+import propTypes from 'prop-types';
 
 const Week = ({ weekDates, events, setEventDay, setCreateEvent, setPopUp, setPopUpStyles, seteventToDelete }) => {
 
@@ -66,3 +67,14 @@ const Week = ({ weekDates, events, setEventDay, setCreateEvent, setPopUp, setPop
 };
 
 export default Week;
+
+Week.propTypes = {
+  weekDates: propTypes.array,
+  setEventDay: propTypes.func,
+  setCreateEvent: propTypes.func,
+  setPopU: propTypes.func,
+  setPopUpStyles: propTypes.func,
+  seteventToDelete: propTypes.func,
+  events: propTypes.array,
+  fetchEvents: propTypes.func,
+}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import propTypes from 'prop-types';
 
 
 const CreateButton = ({setCreateEvent, createEvent}) => {
@@ -27,3 +28,8 @@ const CreateButton = ({setCreateEvent, createEvent}) => {
 }
 
 export default CreateButton;
+
+CreateButton.propTypes = {
+  setStartDate: propTypes.func,
+  createEvent: propTypes.bool,
+}

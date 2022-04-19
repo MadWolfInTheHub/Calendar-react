@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { days } from '../../utils/dateUtils.js';
+import propTypes from 'prop-types';
 
 const Navigation = ({ weekDates }) => {
   return (
@@ -16,3 +17,7 @@ const Navigation = ({ weekDates }) => {
 };
 
 export default Navigation;
+
+Navigation.propTypes = {
+  weekDates: propTypes.array,
+}

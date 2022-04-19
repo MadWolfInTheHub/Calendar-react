@@ -2,6 +2,7 @@ import React from 'react';
 
 import Event from '../event/Event';
 import { formatMins } from '../../../src/utils/dateUtils.js';
+import propTypes from 'prop-types';
 
 const Hour = ({ dataHour, hourEvents }) => {
   return (
@@ -35,3 +36,8 @@ const Hour = ({ dataHour, hourEvents }) => {
 };
 
 export default Hour;
+
+Hour.propTypes ={
+  dataHour: propTypes.number,
+  hourEvents: propTypes.array,
+}

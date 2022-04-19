@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import moment from "moment";
 import { createEvent } from "../../gateway/tasksGateway";
 
+import propTypes from "prop-types";
+
 class ModalForm extends Component {
   state = {
     title: '',
@@ -93,3 +95,9 @@ class ModalForm extends Component {
 };
 
 export default ModalForm;
+
+ModalForm.propTypes = {
+  eventDay: propTypes.object,
+  onCloseModal: propTypes.func,
+  fetchEvents: propTypes.func,
+}

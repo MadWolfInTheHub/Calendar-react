@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { getDisplayedMonth } from '../../utils/dateUtils';
 import CreateButton from './CreateButton'
+import propTypes from 'prop-types';
+
 
 import './header.scss';
 
@@ -69,3 +71,15 @@ const Header = ({ setStartDate, currentday, createEvent, setCreateEvent }) => {
 };
 
 export default Header;
+
+
+Header.propTypes = {
+  setStartDate: propTypes.func,
+  currentday: propTypes.object,
+  createEvent: propTypes.bool,
+  setCreateEvent: propTypes.func,
+}
+
+Header.defaulProps = {
+  currentday: new Date(),
+}

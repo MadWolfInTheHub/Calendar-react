@@ -3,6 +3,7 @@ import Hour from '../hour/Hour';
 import Clock from '../clock/Clock';
 
 import './day.scss';
+import propTypes from 'prop-types';
 
 const Day = ({ dataDay, dayEvents }) => {
   const hours = Array(24)
@@ -30,3 +31,8 @@ const Day = ({ dataDay, dayEvents }) => {
 };
 
 export default Day;
+
+Day.propTypes = {
+  dataDay: propTypes.number,
+  dayEvents: propTypes.array,
+}

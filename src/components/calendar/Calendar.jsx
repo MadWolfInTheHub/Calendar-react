@@ -5,6 +5,7 @@ import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
 
 import './calendar.scss';
+import propTypes from 'prop-types';
 
 class Calendar extends Component {
   componentDidMount() {
@@ -39,3 +40,14 @@ class Calendar extends Component {
 }
 
 export default Calendar;
+
+Calendar.propTypes = {
+  weekDates: propTypes.array,
+  setEventDay: propTypes.func,
+  setCreateEvent: propTypes.func,
+  setPopU: propTypes.func,
+  setPopUpStyles: propTypes.func,
+  seteventToDelete: propTypes.func,
+  events: propTypes.array,
+  fetchEvents: propTypes.func,
+}
