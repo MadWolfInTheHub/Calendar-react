@@ -9,7 +9,7 @@ export const createEvent = (eventData) => {
     body: JSON.stringify(eventData),
   }).then(response => {
     if (!response.ok) {
-      throw new Error('Fail to creat Eevent')
+      throw new Error("nternal Server Error. Can't display events")
     } 
   });
 };
@@ -33,7 +33,7 @@ export const updateEvent = (eventId, eventData) => {
     body: JSON.stringify(eventData),
   }).then(response => {
     if (!response.ok) {
-      throw new Error('Fail to creat Event')
+      throw new Error("nternal Server Error. Can't display events")
     }
   });
 };
@@ -43,7 +43,7 @@ export const deleteEvent = (eventId) => {
     method: "DELETE",
   }).then(response => {
     if (!response.ok) {
-      throw new Error('Failed to delete Event')
+      throw new Error("nternal Server Error. Can't display events")
     } 
-  });
+  })
 }
