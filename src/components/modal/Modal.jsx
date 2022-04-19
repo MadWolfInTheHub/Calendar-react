@@ -1,36 +1,37 @@
+/* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react';
 
-
 import './modal.scss';
-import ModalForm from './ModalForm';
 import propTypes from 'prop-types';
+import ModalForm from './ModalForm';
 
-const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent, fetchEvents }) => {
-
+const Modal = ({
+  setEventDay, eventDay, createEvent, setCreateEvent, fetchEvents,
+}) => {
   const onCloseModal = () => {
-    setEventDay(new Date())
+    setEventDay(new Date());
     setCreateEvent(!createEvent);
   };
-    
+
   useEffect(() => {
     const modalCloseBtn = () => {
-      onCloseModal()
-    }
+      onCloseModal();
+    };
 
     const closeModal = document.querySelector('.create-event__close-btn');
     closeModal.addEventListener('click', modalCloseBtn);
     return () => {
       closeModal.removeEventListener('click', modalCloseBtn);
-    }
-  })
+    };
+  });
 
   return (
     <div className="modal overlay">
       <div className="modal__content">
         <div className="create-event">
           <button className="create-event__close-btn">+</button>
-          <ModalForm 
-          eventDay={eventDay} 
+          <ModalForm
+          eventDay={eventDay}
           onCloseModal={onCloseModal}
           fetchEvents={fetchEvents}
         />
@@ -38,8 +39,7 @@ const Modal = ({setEventDay, eventDay, createEvent, setCreateEvent, fetchEvents 
       </div>
     </div>
   );
-
-}
+};
 
 export default Modal;
 
@@ -49,4 +49,4 @@ Modal.propTypes = {
   createEvent: propTypes.bool,
   setCreateEvent: propTypes.func,
   fetchEvents: propTypes.func,
-}
+};

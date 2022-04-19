@@ -1,17 +1,19 @@
+/* eslint-disable import/no-unresolved */
 import React, { useEffect } from 'react';
-import { getDisplayedMonth } from '../../utils/dateUtils';
-import CreateButton from './CreateButton'
 import propTypes from 'prop-types';
-
+import { getDisplayedMonth } from '../../utils/dateUtils';
+import CreateButton from './CreateButton';
 
 import './header.scss';
 
-const Header = ({ setStartDate, currentday, createEvent, setCreateEvent }) => {
-  const displayedMonthElem = getDisplayedMonth(currentday)
+const Header = ({
+  setStartDate, currentday, createEvent, setCreateEvent,
+}) => {
+  const displayedMonthElem = getDisplayedMonth(currentday);
 
-  const onChangeWeek = event => { 
+  const onChangeWeek = (event) => {
     const changeWeek = event.target.getAttribute('data-direction');
-  
+
     const currentWeek = new Date();
     const week = 7;
     const date = new Date(currentday).getDate();
@@ -24,35 +26,34 @@ const Header = ({ setStartDate, currentday, createEvent, setCreateEvent }) => {
       setStartDate({
         currentday: currentWeek,
       });
-    } ;
+    }
 
     if (changeWeek === 'prev') {
       setStartDate({
         currentday: (new Date(year, month, date - week)),
       });
-    };
+    }
 
     if (changeWeek === 'next') {
       setStartDate({
         currentday: (new Date(year, month, date + week)),
       });
-    };
+    }
   };
 
   useEffect(() => {
     const navElem = document.querySelector('header');
 
     navElem.addEventListener('click', onChangeWeek);
-    
+
     return () => {
-      navElem.removeEventListener('click', onChangeWeek)
-      
+      navElem.removeEventListener('click', onChangeWeek);
     };
   });
 
   return (
     <header className="header">
-      <CreateButton 
+      <CreateButton
         createEvent={createEvent}
         setCreateEvent={setCreateEvent}
       />
@@ -72,14 +73,13 @@ const Header = ({ setStartDate, currentday, createEvent, setCreateEvent }) => {
 
 export default Header;
 
-
 Header.propTypes = {
   setStartDate: propTypes.func,
   currentday: propTypes.object,
   createEvent: propTypes.bool,
   setCreateEvent: propTypes.func,
-}
+};
 
 Header.defaulProps = {
   currentday: new Date(),
-}
+};

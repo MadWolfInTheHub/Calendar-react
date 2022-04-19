@@ -2,7 +2,9 @@ import React from 'react';
 
 import './event.scss';
 
-const Event = ({ height, marginTop, title, time, id, description }) => {
+const Event = ({
+  height, marginTop, title, time, id, description,
+}) => {
   const eventStyle = {
     height,
     marginTop,

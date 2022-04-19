@@ -4,41 +4,39 @@ import Calendar from './components/calendar/Calendar.jsx';
 import Modal from './components/modal/Modal.jsx';
 import PopUp from './components/popup/PopUp.jsx';
 
-import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
+import { getWeekStartDate, generateWeekRange } from './utils/dateUtils.js';
 import { fetchEventsList } from './gateway/tasksGateway.jsx';
 
 import './common.scss';
 
 const App = () => {
-  const [events, setEvents] = useState({ eventsList: [] })
-  const [weekStartDate, setStartDate] = useState({ currentday: new Date() })
-  const [popUpStyles, setPopUpStyles] = useState({ top: '', left: '' })
-  const [createEvent, setCreateEvent] = useState(false)
-  const [popUp, setPopUp] = useState(false)
-  const [eventToDelete, seteventToDelete] = useState(null)
-  
+  const [events, setEvents] = useState({ eventsList: [] });
+  const [weekStartDate, setStartDate] = useState({ currentday: new Date() });
+  const [popUpStyles, setPopUpStyles] = useState({ top: '', left: '' });
+  const [createEvent, setCreateEvent] = useState(false);
+  const [popUp, setPopUp] = useState(false);
+  const [eventToDelete, seteventToDelete] = useState(null);
+
   const { currentday } = weekStartDate;
-  const [eventDay, setEventDay] = useState(currentday)
-  
+  const [eventDay, setEventDay] = useState(currentday);
+
   const weekDates = generateWeekRange(getWeekStartDate(currentday));
 
   const fetchEvents = () => {
-    fetchEventsList().then(eventsList => 
-      setEvents({
-        eventsList,
-      }),
-    );
-  }
+    fetchEventsList().then((eventsList) => setEvents({
+      eventsList,
+    }));
+  };
 
   return (
     <>
-      <Header 
+      <Header
         currentday={currentday}
         setStartDate={setStartDate}
         createEvent={createEvent}
         setCreateEvent={setCreateEvent}
         />
-      <Calendar 
+      <Calendar
         weekDates={weekDates}
         setEventDay={setEventDay}
         setCreateEvent={setCreateEvent}
@@ -50,8 +48,8 @@ const App = () => {
         />
       {
         !createEvent
-        ? null
-        : <Modal 
+          ? null
+          : <Modal
             eventDay={eventDay}
             setEventDay={setEventDay}
             createEvent={createEvent}
@@ -61,8 +59,8 @@ const App = () => {
         }
         {
           !popUp
-          ? null
-          : <PopUp 
+            ? null
+            : <PopUp
             popUpStyles={popUpStyles}
             setPopUp={setPopUp}
             eventToDelete={eventToDelete}
@@ -71,7 +69,6 @@ const App = () => {
         }
     </>
   );
-
-}
+};
 
 export default App;
