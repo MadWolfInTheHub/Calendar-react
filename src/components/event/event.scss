@@ -15,6 +15,14 @@
     margin-bottom: 8px;
   }
 
+  &__description {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 8px;
+  }
+
   &:hover {
     font-weight: bold;
     background-color: red;
