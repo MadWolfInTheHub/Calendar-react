@@ -31,3 +31,7 @@ Calendar app is written according ES6 satndarts and uses babel to have an abbili
 Calendar app was written under airbnb config for eslint. See some extra rulles in the eslintrc.js.
 
 To run the app use command "npm start" in the terminal, to build it run "rmp run build" command.
+
+Link to the Calendar project on Netify  https://mellow-hummingbird-13d60b.netlify.app/
+Link to the project on Github https://github.com/MadWolfInTheHub/Calendar-react
+For more detailed info contect me via email esotericksv@gmail.com 
