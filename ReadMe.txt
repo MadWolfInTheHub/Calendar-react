@@ -34,4 +34,5 @@ To run the app use command "npm start" in the terminal, to build it run "rmp run
 
 Link to the Calendar project on Netify  https://mellow-hummingbird-13d60b.netlify.app/
 Link to the project on Github https://github.com/MadWolfInTheHub/Calendar-react
+All the data is being stored on mockapi.io at https://625ac031398f3bc782a5bba2.mockapi.io/events
 For more detailed info contect me via email esotericksv@gmail.com 
