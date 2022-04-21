@@ -36,3 +36,16 @@ Link to the Calendar project on Netify  https://mellow-hummingbird-13d60b.netlif
 Link to the project on Github https://github.com/MadWolfInTheHub/Calendar-react
 All the data is being stored on mockapi.io at https://625ac031398f3bc782a5bba2.mockapi.io/events
 For more detailed info contect me via email esotericksv@gmail.com 
+
+Site link
+
+Layout supports mobile (up-to-400) and desktop (up-to-1360) versions
+
+The tech stack is:
+HTML5
+CSS3
+Flexbox
+Sass (Scss)
+BEM methodology
+Author
+Some Name
