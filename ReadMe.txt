@@ -1,4 +1,8 @@
-This is a Calendar React project written by Krivenko Serhii a citizen of Ukraine.
+Link to the Calendar project on Netify  https://mellow-hummingbird-13d60b.netlify.app/
+Link to the project on Github https://github.com/MadWolfInTheHub/Calendar-react
+All the data is being stored on mockapi.io at https://625ac031398f3bc782a5bba2.mockapi.io/events
+For more detailed info contect me via email esotericksv@gmail.com 
+
 
 This calendar is devided into 4 main Components: Header, Calendar, Modal and Popup,
 
@@ -32,20 +36,13 @@ Calendar app was written under airbnb config for eslint. See some extra rulles i
 
 To run the app use command "npm start" in the terminal, to build it run "rmp run build" command.
 
-Link to the Calendar project on Netify  https://mellow-hummingbird-13d60b.netlify.app/
-Link to the project on Github https://github.com/MadWolfInTheHub/Calendar-react
-All the data is being stored on mockapi.io at https://625ac031398f3bc782a5bba2.mockapi.io/events
-For more detailed info contect me via email esotericksv@gmail.com 
-
-Site link
-
-Layout supports mobile (up-to-400) and desktop (up-to-1360) versions
 
 The tech stack is:
 HTML5
-CSS3
-Flexbox
+ES6
+React
 Sass (Scss)
 BEM methodology
+
 Author
-Some Name
+This is a Calendar React project written by Serhii Krivenko a citizen of Ukraine.
