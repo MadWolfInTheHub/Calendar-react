@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <Header
-        currentday={currentday}
+        currentday={getWeekStartDate(currentday)}
         setStartDate={setStartDate}
         createEvent={createEvent}
         setCreateEvent={setCreateEvent}

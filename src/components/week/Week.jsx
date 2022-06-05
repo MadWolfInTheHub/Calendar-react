@@ -31,9 +31,9 @@ const Week = ({
       const hour = 1;
       const choosenTime = event.target.closest('.calendar__time-slot').getAttribute('data-time');
       const choosenDay = event.target.closest('.calendar__day').getAttribute('data-day');
-      const chossenDate = weekDates.filter((date) => moment(date).format('DD') === choosenDay);
+      const chosenDate = weekDates.filter((date) => Number(moment(date).format('DD')) === Number(choosenDay));
 
-      setEventDay(moment(chossenDate[0]).add(choosenTime - hour, 'hours'));
+      setEventDay(moment(chosenDate[0]).add(choosenTime - hour, 'hours'));
       setCreateEvent(true);
     };
 
